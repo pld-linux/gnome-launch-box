@@ -16,7 +16,7 @@ BuildRequires:	gnome-desktop-devel
 BuildRequires:	gnome-menus-devel
 BuildRequires:	gnome-vfs2-devel
 BuildRequires:	gtk+2-devel
-BuildRequires:	libgnome-devel
+BuildRequires:	libgnomeui-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
