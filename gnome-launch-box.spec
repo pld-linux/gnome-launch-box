@@ -8,16 +8,17 @@ Group:		Applications
 Source0:	http://ftp.imendio.com/pub/imendio/gnome-launch-box/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	fe905563933fc86081401dccae71e51c
 URL:		http://developer.imendio.com/projects/gnome-launch-box/
-BuildRequires:	GConf2-devel
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	evolution-data-server-devel >= 1.2
-BuildRequires:	gnome-desktop-devel
-BuildRequires:	gnome-menus-devel
-BuildRequires:	gnome-vfs2-devel
-BuildRequires:	gtk+2-devel >= 2:2.6
-BuildRequires:	libgnomeui-devel
+BuildRequires:	GConf2-devel >= 2.0
+BuildRequires:	autoconf >= 2.59
+BuildRequires:	automake >= 1:1.9
+BuildRequires:	evolution-data-server-devel >= 1.8
+BuildRequires:	gnome-desktop-devel >= 2.10
+BuildRequires:	gnome-menus-devel >= 2.10
+BuildRequires:	gnome-vfs2-devel >= 2.10
+BuildRequires:	gtk+2-devel >= 2:2.10
+BuildRequires:	libgnomeui-devel >= 2.0
 BuildRequires:	libtool
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
