@@ -1,12 +1,12 @@
 Summary:	GNOME application launcher inspired by Quicksilver
 Summary(pl.UTF-8):	Narzędzie GNOME do uruchamiania aplikacji zainspirowane Quicksilverem
 Name:		gnome-launch-box
-Version:	0.2
-Release:	0.1
+Version:	0.4
+Release:	1
 License:	GPL
 Group:		Applications
 Source0:	http://ftp.imendio.com/pub/imendio/gnome-launch-box/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	fe905563933fc86081401dccae71e51c
+# Source0-md5:	7c2c77a2ff7cceab82e50ad4d3ee0f9e
 URL:		http://developer.imendio.com/projects/gnome-launch-box/
 BuildRequires:	GConf2-devel >= 2.0
 BuildRequires:	autoconf >= 2.59
@@ -25,9 +25,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Launch Box is generally an application launcher. It's very influenced
 by Quicksilver for Mac OS X. Remember that this is only a first
 release so don't get your hopes up too much. Launch Box is written for
-the GNOME 2.10 platform and depends on GTK+ 2.6, evolution-data-server 1.2
-and gnome-menus. These are currently hard dependencies but the plan is
-to split out the backends into different optional backends.
+the GNOME 2.10 platform and depends on GTK+ 2.6, evolution-data-server
+1.2 and gnome-menus. These are currently hard dependencies but the
+plan is to split out the backends into different optional backends.
 
 Currently supported modules are:
  - Application starting and launch
@@ -57,6 +57,7 @@ Aktualnie obsługiwane moduły to:
 
 %build
 %{__libtoolize}
+%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__autoheader}
@@ -81,5 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gnome-launch-box
 %dir %{_datadir}/lb
 %dir %{_datadir}/lb/images
+%{_datadir}/gnome-control-center/keybindings/90-gnome-launch-box.xml
 %{_datadir}/lb/images/*.png
 %{_sysconfdir}/gconf/schemas/gnome-launch-box.schemas
