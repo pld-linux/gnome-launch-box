@@ -4,7 +4,7 @@ Name:		gnome-launch-box
 Version:	0.4
 Release:	1
 License:	GPL
-Group:		Applications
+Group:		X11/Applications
 Source0:	http://ftp.imendio.com/pub/imendio/gnome-launch-box/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	7c2c77a2ff7cceab82e50ad4d3ee0f9e
 URL:		http://developer.imendio.com/projects/gnome-launch-box/
@@ -16,9 +16,13 @@ BuildRequires:	gnome-desktop-devel >= 2.10
 BuildRequires:	gnome-menus-devel >= 2.10
 BuildRequires:	gnome-vfs2-devel >= 2.10
 BuildRequires:	gtk+2-devel >= 2:2.10
+BuildRequires:	intltool
 BuildRequires:	libgnomeui-devel >= 2.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.198
+Requires(post,preun):	GConf2
+Requires:	gnome-control-center
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -76,12 +80,18 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%gconf_schema_install gnome-launch-box.schemas
+
+%preun
+%gconf_schema_uninstall gnome-launch-box.schemas
+
 %files -f %{name}.lang
 %defattr(644,root,root,755)
 #%doc AUTHORS CREDITS ChangeLog NEWS README THANKS TODO
 %attr(755,root,root) %{_bindir}/gnome-launch-box
 %dir %{_datadir}/lb
 %dir %{_datadir}/lb/images
-%{_datadir}/gnome-control-center/keybindings/90-gnome-launch-box.xml
 %{_datadir}/lb/images/*.png
+%{_datadir}/gnome-control-center/keybindings/90-gnome-launch-box.xml
 %{_sysconfdir}/gconf/schemas/gnome-launch-box.schemas
