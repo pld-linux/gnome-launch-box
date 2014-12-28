@@ -12,7 +12,7 @@ BuildRequires:	GConf2-devel >= 2.0
 BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake >= 1:1.9
 BuildRequires:	evolution-data-server-devel >= 1.8
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gnome-desktop-devel >= 2.10
 BuildRequires:	gnome-menus-devel >= 2.10
 BuildRequires:	gnome-vfs2-devel >= 2.10
